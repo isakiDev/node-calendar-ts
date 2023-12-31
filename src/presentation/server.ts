@@ -1,4 +1,5 @@
 import express, { type Router } from 'express'
+import { corsAdapter } from '../config'
 
 interface Options {
   port: number
@@ -20,6 +21,12 @@ export class Server implements Options {
   }
 
   start () {
+    this.app.use(corsAdapter())
+    this.app.use(this.routes)
+    this.app.use(express.static(this.publicPath))
 
+    this.app.listen(this.port, () => {
+      console.log(`Server listen in port http://localhost:${this.port}`)
+    })
   }
 }
