@@ -1,2 +1,2 @@
-export { corsAdapter } from './corsAdapter'
-export { envs } from './envs'
+export * from './corsAdapter'
+export * from './envs'

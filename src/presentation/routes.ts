@@ -1,6 +1,5 @@
 import { Router } from 'express'
-import { AuthRoutes } from './auth/routes'
-import { CalendarRoutes } from './calendar/routes'
+import { AuthRoutes, CalendarRoutes } from '.'
 
 export class AppRoutes {
   static get routes () {

@@ -21,6 +21,7 @@ export class Server implements Options {
   }
 
   start () {
+    this.app.use(express.json())
     this.app.use(corsAdapter())
     this.app.use(this.routes)
     this.app.use(express.static(this.publicPath))

@@ -1,18 +1,17 @@
-import { Server } from './presentation/server'
 import { envs } from './config'
-import { AppRoutes } from './presentation'
-import { MongoDatabase } from './data'
+import { AppRoutes, Server } from './presentation'
+import { MongoDatabase } from './data/mongo'
 
 (async () => {
+  await main()
+})()
+
+async function main () {
   await MongoDatabase.connect({
-    dbName: 'Calendar',
+    dbName: 'calendar',
     mongoUrl: envs.DB_CNN
   })
 
-  main()
-})()
-
-function main () {
   new Server({
     port: envs.PORT ?? 0,
     routes: AppRoutes.routes

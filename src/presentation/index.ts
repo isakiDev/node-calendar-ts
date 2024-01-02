@@ -1,3 +1,8 @@
-export { AppRoutes } from './routes'
-export { AuthRoutes } from './auth/routes'
-export { CalendarRoutes } from './calendar/routes'
+export * from './routes'
+
+export * from './auth/routes'
+export * from './auth/controller'
+
+export * from './calendar/routes'
+
+export * from './server'
