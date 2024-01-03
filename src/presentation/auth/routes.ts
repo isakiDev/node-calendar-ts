@@ -11,7 +11,8 @@ export class AuthRoutes {
     const repository = new AuthRepositoryImpl(datasource)
     const controller = new AuthController(repository)
 
-    router.post('/', controller.login)
+    router.post('/register', controller.register)
+    router.post('/login', controller.login)
 
     return router
   }

@@ -1,4 +1,4 @@
-import { type AuthRepository, type LoginUserDto } from '../'
+import { type AuthRepository, type LoginUserDto } from '../..'
 
 interface UserToken {
   token: string

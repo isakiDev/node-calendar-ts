@@ -2,7 +2,8 @@ import {
   type AuthRepository,
   type LoginUserDto,
   type UserEntity,
-  type AuthDatasource
+  type AuthDatasource,
+  type RegisterUserDto
 } from '../../domain'
 
 export class AuthRepositoryImpl implements AuthRepository {
@@ -12,5 +13,9 @@ export class AuthRepositoryImpl implements AuthRepository {
 
   async login (loginUserDto: LoginUserDto): Promise<UserEntity> {
     return await this.authDatasource.login(loginUserDto)
+  }
+
+  async register (registerUserDto: RegisterUserDto): Promise<UserEntity> {
+    return await this.authDatasource.register(registerUserDto)
   }
 }
