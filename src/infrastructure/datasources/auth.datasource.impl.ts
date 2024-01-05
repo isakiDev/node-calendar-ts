@@ -3,39 +3,64 @@ import {
   type RegisterUserDto,
   type AuthDatasource,
   type LoginUserDto,
-  type UserEntity
+  type UserEntity,
+  CustomError
 } from '../../domain'
-import { UserMapper } from '../mappers/user.mapper'
+import { UserMapper } from '../'
+import { BcryptAdapter } from '../../config'
+
+type HashFunction = (password: string) => string
+type CompareFunction = (password: string, hashed: string) => boolean
 
 export class AuthDatasourceImpl implements AuthDatasource {
+  constructor (
+    private readonly hashPassword: HashFunction = BcryptAdapter.hash,
+    private readonly comparePassword: CompareFunction = BcryptAdapter.compare
+  ) {}
+
   async login (loginUserDto: LoginUserDto): Promise<UserEntity> {
-    // throw new Error('Method not implemented.')
-    return {
-      id: '1',
-      name: 'Gaspar',
-      email: 'test@email.com',
-      password: 'qqqqqq'
+    const { email, password } = loginUserDto
+
+    try {
+      const user = await UserModel.findOne({ email })
+      if (!user) throw CustomError.badRequest('User not exists')
+
+      const isMatching = this.comparePassword(password, user.password)
+      if (!isMatching) throw CustomError.badRequest('Invalid password')
+
+      return UserMapper.userEntityFromObject(user)
+    } catch (error) {
+      if (error instanceof CustomError) {
+        throw error
+      }
+
+      throw CustomError.internalServer()
     }
   }
 
   async register (registerUserDto: RegisterUserDto): Promise<UserEntity> {
     const { name, email, password } = registerUserDto
+
     try {
       const existsUser = await UserModel.findOne({ email })
 
-      if (existsUser) throw new Error('User already exists')
+      if (existsUser) throw CustomError.badRequest('User already exists')
 
       const user = await UserModel.create({
-        email: registerUserDto.email,
-        name: registerUserDto.name,
-        password: registerUserDto.password
+        email,
+        name,
+        password: this.hashPassword(password)
       })
 
       await user.save()
 
       return UserMapper.userEntityFromObject(user)
     } catch (error) {
-      throw new Error(`${error}`)
+      if (error instanceof CustomError) {
+        throw error
+      }
+
+      throw CustomError.internalServer()
     }
   }
 }

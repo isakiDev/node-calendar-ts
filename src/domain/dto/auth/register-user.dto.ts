@@ -1,4 +1,4 @@
-interface Object {
+interface Fields {
   name: string
   email: string
   password: string
@@ -11,7 +11,7 @@ export class RegisterUserDto {
     public password: string
   ) {}
 
-  static create (object: Object): [string?, RegisterUserDto?] {
+  static create (object: Fields): [string?, RegisterUserDto?] {
     const { name, email, password } = object
 
     if (!name) return ['Missing name']

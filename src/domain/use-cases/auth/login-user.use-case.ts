@@ -1,4 +1,5 @@
-import { type AuthRepository, type LoginUserDto } from '../..'
+import { CustomError, type AuthRepository, type LoginUserDto } from '../..'
+import { JwtAdapter } from '../../../config'
 
 interface UserToken {
   token: string
@@ -21,8 +22,11 @@ export class LoginUser implements LoginUserUseCase {
   async execute (loginUserDto: LoginUserDto): Promise<UserToken> {
     const { id, name, email } = await this.authRepository.login(loginUserDto)
 
+    const token = await JwtAdapter.generateToken({ id })
+    if (!token) throw CustomError.internalServer('Error generating token')
+
     return {
-      token: 'test-token',
+      token,
       user: {
         id,
         name,
