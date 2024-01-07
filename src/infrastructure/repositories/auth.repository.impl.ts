@@ -3,7 +3,8 @@ import {
   type LoginUserDto,
   type UserEntity,
   type AuthDatasource,
-  type RegisterUserDto
+  type RegisterUserDto,
+  type RevalidateTokenDto
 } from '../../domain'
 
 export class AuthRepositoryImpl implements AuthRepository {
@@ -17,5 +18,9 @@ export class AuthRepositoryImpl implements AuthRepository {
 
   async register (registerUserDto: RegisterUserDto): Promise<UserEntity> {
     return await this.authDatasource.register(registerUserDto)
+  }
+
+  async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<UserEntity> {
+    return await this.authDatasource.revalidateToken(revalidateTokenDto)
   }
 }

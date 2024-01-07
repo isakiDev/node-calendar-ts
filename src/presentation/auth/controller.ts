@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express'
-import { LoginUserDto, type AuthRepository, LoginUser, RegisterUserDto, RegisterUser, CustomError } from '../../domain'
+import { LoginUserDto, type AuthRepository, LoginUser, RegisterUserDto, RegisterUser, CustomError, RevalidateTokenDto, RevalidateToken } from '../../domain'
 
 export class AuthController {
   constructor (
@@ -32,6 +32,17 @@ export class AuthController {
 
     new RegisterUser(this.authRepository)
       .execute(registerUserDto!)
+      .then(data => res.json(data))
+      .catch(error => this.handleError(error, res))
+  }
+
+  revalidateToken = async (req: Request, res: Response) => {
+    const [error, revalidateTokenDto] = RevalidateTokenDto.create(req.body)
+
+    if (error) return res.status(400).json({ error })
+
+    new RevalidateToken(this.authRepository)
+      .execute(revalidateTokenDto!)
       .then(data => res.json(data))
       .catch(error => this.handleError(error, res))
   }
