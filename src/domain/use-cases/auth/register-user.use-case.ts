@@ -25,7 +25,7 @@ export class RegisterUser implements RegisterUserUseCase {
   async execute (registerUserDto: RegisterUserDto): Promise<UserToken> {
     const { id, name, email } = await this.authRepository.register(registerUserDto)
 
-    const token = await this.signToken({ id }, '1h')
+    const token = await this.signToken({ id, name }, '1h')
 
     if (!token) throw CustomError.badRequest('Token not generated')
 

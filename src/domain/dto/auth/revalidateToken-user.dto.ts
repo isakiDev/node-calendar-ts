@@ -10,7 +10,7 @@ export class RevalidateTokenDto implements Fields {
   ) {}
 
   static create ({ id, name }: Fields): [string?, RevalidateTokenDto?] {
-    if (!id) return ['Missing uid']
+    if (!id) return ['Missing id']
     if (!name) return ['Missing name']
 
     return [

@@ -22,7 +22,7 @@ export class LoginUser implements LoginUserUseCase {
   async execute (loginUserDto: LoginUserDto): Promise<UserToken> {
     const { id, name, email } = await this.authRepository.login(loginUserDto)
 
-    const token = await JwtAdapter.generateToken({ id })
+    const token = await JwtAdapter.generateToken({ id, name })
     if (!token) throw CustomError.internalServer('Error generating token')
 
     return {

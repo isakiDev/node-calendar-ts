@@ -69,10 +69,12 @@ export class AuthDatasourceImpl implements AuthDatasource {
     const { id, name } = revalidateTokenDto
 
     try {
-      return UserMapper.userEntityFromObject({
+      return {
         id,
-        name
-      })
+        name,
+        email: '',
+        password: ''
+      }
     } catch (error) {
       if (error instanceof CustomError) {
         throw error
