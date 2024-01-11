@@ -20,7 +20,7 @@ export class AuthRepositoryImpl implements AuthRepository {
     return await this.authDatasource.register(registerUserDto)
   }
 
-  async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<UserEntity> {
+  async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<RevalidateTokenDto> {
     return await this.authDatasource.revalidateToken(revalidateTokenDto)
   }
 }

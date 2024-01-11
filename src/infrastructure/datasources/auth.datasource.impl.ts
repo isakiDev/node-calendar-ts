@@ -4,8 +4,7 @@ import {
   type AuthDatasource,
   type LoginUserDto,
   type UserEntity,
-  CustomError,
-  type RevalidateTokenDto
+  CustomError, RevalidateTokenDto
 } from '../../domain'
 import { UserMapper } from '../'
 import { BcryptAdapter } from '../../config'
@@ -65,16 +64,11 @@ export class AuthDatasourceImpl implements AuthDatasource {
     }
   }
 
-  async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<UserEntity> {
+  async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<RevalidateTokenDto> {
     const { id, name } = revalidateTokenDto
 
     try {
-      return {
-        id,
-        name,
-        email: '',
-        password: ''
-      }
+      return new RevalidateTokenDto(id, name)
     } catch (error) {
       if (error instanceof CustomError) {
         throw error

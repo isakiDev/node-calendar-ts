@@ -1,5 +1,5 @@
 import { type Request, type Response, type NextFunction } from 'express'
-import { CustomError } from '../../domain'
+import { CustomError, type RevalidateTokenDto } from '../../domain'
 import { JwtAdapter } from '../../config'
 
 interface Token {
@@ -10,7 +10,7 @@ interface Token {
 }
 
 type TokenVerify = Token | null
-type RequestWithIdAndName = Request & { id: string, name: string }
+type RequestWithIdAndName = Request & RevalidateTokenDto
 
 export class AuthMiddleware {
   static async validateJWT (req: RequestWithIdAndName, res: Response, next: NextFunction) {

@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express'
 import { LoginUserDto, type AuthRepository, LoginUser, RegisterUserDto, RegisterUser, CustomError, RevalidateTokenDto, RevalidateToken } from '../../domain'
 
-type RequestWithIdAndName = Request & { id: string, name: string }
+type RequestWithIdAndName = Request & RevalidateTokenDto
 
 export class AuthController {
   constructor (
