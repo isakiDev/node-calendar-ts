@@ -1,5 +1,5 @@
 import { type Request, type Response, type NextFunction } from 'express'
-import { CustomError, type RevalidateTokenDto } from '../../domain'
+import { CustomError } from '../../domain'
 import { JwtAdapter } from '../../config'
 
 interface Token {
@@ -9,16 +9,20 @@ interface Token {
   exp: number
 }
 
+interface RequestWithIdAndName extends Request {
+  id?: string
+  name?: string
+}
+
 type TokenVerify = Token | null
-type RequestWithIdAndName = Request & RevalidateTokenDto
 
 export class AuthMiddleware {
   static async validateJWT (req: RequestWithIdAndName, res: Response, next: NextFunction) {
     const tokenHeader = req.header('x-token')
 
-    if (!tokenHeader) throw CustomError.badRequest('Missing token')
-
     try {
+      if (!tokenHeader) throw CustomError.unauthorized('Missing token')
+
       const data: TokenVerify = await JwtAdapter.validateToken(tokenHeader)
 
       if (!data) {
@@ -32,9 +36,11 @@ export class AuthMiddleware {
 
       next()
     } catch (error) {
-      res.status(500).json({
-        error: 'Internal server error'
-      })
+      if (error instanceof CustomError) {
+        res.status(error.statusCode).json({ error: error.message })
+      }
+
+      CustomError.internalServer()
     }
   }
 }

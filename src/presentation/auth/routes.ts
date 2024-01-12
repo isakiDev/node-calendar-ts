@@ -14,7 +14,7 @@ export class AuthRoutes {
 
     router.post('/register', controller.register)
     router.post('/login', controller.login)
-    router.post('/rev', [AuthMiddleware.validateJWT], controller.revalidateToken)
+    // router.post('/rev', [AuthMiddleware.validateJWT], controller.revalidateToken)
 
     return router
   }
