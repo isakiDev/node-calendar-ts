@@ -1,10 +1,10 @@
 POST http://localhost:4000/api/calendar
 Content-Type: application/json
-x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWIxZDIyZDNlNzFhZGNhZTFhOWMxYiIsIm5hbWUiOiJHYXNwYXNobyIsImlhdCI6MTcwNTAyMTgxNiwiZXhwIjoxNzA1MDI5MDE2fQ.S7u7YL7X96lw4aGA_MWbzfarnXWbLkwK0WcriWnsw3I
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTBkMjNmODU4YjkxNzBkZDkzMGZkYSIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MDM4NDQ2LCJleHAiOjE3MDUwNDU2NDZ9._4KEtEb8BPUhCm1L93UVlZO0mxw9DFW7_1mhXZ-zHwI
 
 {
-  "title": "A title 2",
-  "notes": "This is my new note 2",
+  "title": "Forge",
+  "notes": "Learn with forge",
   "start": "11/01/2024",
   "end": "11/01/2024"
 }

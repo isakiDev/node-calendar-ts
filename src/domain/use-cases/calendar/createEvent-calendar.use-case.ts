@@ -7,7 +7,9 @@ interface Calendar {
   notes: string
   start: Date
   end: Date
-  user: string
+  user: {
+    id: string
+  }
 }
 
 interface CreateEventUseCase {
@@ -24,6 +26,14 @@ export class CreateEvent implements CreateEventUseCase {
 
     if (!event) throw CustomError.badRequest('Event not created')
 
-    return event
+    return {
+      title: event.title,
+      end: event.end,
+      notes: event.notes,
+      start: event.start,
+      user: {
+        id: event.user
+      }
+    }
   }
 }
