@@ -2,9 +2,9 @@ POST http://localhost:4000/api/auth/register
 Content-Type: application/json
 
 {
-  "name": "Gabriel",
+  "name": "Gaspar",
   "email": "test1@gmail.com",
-  "password": "wwwwww"
+  "password": "chuchuca28"
 }
 ###
 POST http://localhost:4000/api/auth/login
@@ -12,11 +12,11 @@ Content-Type: application/json
 
 {
   "email": "test1@gmail.com",
-  "password": "wwwwww"
+  "password": "chuchuca28"
 }
 ###
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWI2MTcyYjE2YzNhZjgwN2Y0NmE4MCIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MTIzMDczLCJleHAiOjE3MDUxMzAyNzN9.t0tBu2I8MH2WBQBDjBTgB9VIOEpn6HB1xNi58SXeAqg 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJkOWEwZjc3NmFmYjgyYzMwYzhjZCIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUxNzEzNjAsImV4cCI6MTcwNTE3NDk2MH0.glyJOUua5a368EiCCLjF5iPECyqiDBysYTvSH5g3t8w
 
 POST http://localhost:4000/api/auth/rev
 Content-Type: application/json
