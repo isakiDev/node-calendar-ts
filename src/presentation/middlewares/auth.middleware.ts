@@ -1,6 +1,7 @@
 import { type Request, type Response, type NextFunction } from 'express'
-import { CustomError } from '../../domain'
+import { CustomError, type RevalidateTokenDto } from '../../domain'
 import { JwtAdapter } from '../../config'
+import { validationResult } from 'express-validator'
 
 interface Token {
   id: string
@@ -9,11 +10,7 @@ interface Token {
   exp: number
 }
 
-interface RequestWithIdAndName extends Request {
-  id?: string
-  name?: string
-}
-
+type RequestWithIdAndName = Request & RevalidateTokenDto
 type TokenVerify = Token | null
 
 export class AuthMiddleware {
@@ -42,5 +39,17 @@ export class AuthMiddleware {
 
       CustomError.internalServer()
     }
+  }
+
+  static validateData (req: Request, res: Response, next: NextFunction) {
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.mapped()
+      })
+    }
+
+    next()
   }
 }

@@ -1,6 +1,6 @@
 POST http://localhost:4000/api/calendar
 Content-Type: application/json
-x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTBkMjNmODU4YjkxNzBkZDkzMGZkYSIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MDM4NDQ2LCJleHAiOjE3MDUwNDU2NDZ9._4KEtEb8BPUhCm1L93UVlZO0mxw9DFW7_1mhXZ-zHwI
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OWI2MTcyYjE2YzNhZjgwN2Y0NmE4MCIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MDk0NzQwLCJleHAiOjE3MDUxMDE5NDB9.QuIc613-iZr5Ywl_uIj4HuKWOoTxr-F6uGkb0aLYGQY
 
 {
   "title": "Forge",
