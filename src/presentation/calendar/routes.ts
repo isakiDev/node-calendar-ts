@@ -11,7 +11,7 @@ export class CalendarRoutes {
     const repository = new CalendarRepositoryImpl(datasource)
     const controller = new CalendarController(repository)
 
-    router.post('/', () => AuthMiddleware.validateJWT, controller.createEvent)
+    router.post('/', AuthMiddleware.validateJWT, controller.createEvent)
 
     return router
   }

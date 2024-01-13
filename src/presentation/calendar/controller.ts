@@ -22,7 +22,7 @@ export class CalendarController {
   createEvent = async (req: RequestWithNameAndId, res: Response) => {
     const data = {
       ...req.body,
-      user: req.id
+      user: req.body.user.id
     }
 
     const [error, createEventDto] = CreateEventDto.create(data)

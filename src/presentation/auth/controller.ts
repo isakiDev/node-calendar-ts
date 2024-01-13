@@ -1,8 +1,6 @@
 import { type Request, type Response } from 'express'
 import { LoginUserDto, type AuthRepository, LoginUser, RegisterUserDto, RegisterUser, CustomError, RevalidateTokenDto, RevalidateToken } from '../../domain'
 
-type RequestWithIdAndName = Request & RevalidateTokenDto
-
 export class AuthController {
   constructor (
     private readonly authRepository: AuthRepository
@@ -38,10 +36,10 @@ export class AuthController {
       .catch(error => this.handleError(error, res))
   }
 
-  revalidateToken = async (req: RequestWithIdAndName, res: Response) => {
+  revalidateToken = async (req: Request, res: Response) => {
     const [error, revalidateTokenDto] = RevalidateTokenDto.create({
-      id: req.id,
-      name: req.name
+      id: req.body.user.id,
+      name: req.body.user.name
     })
 
     if (error) return res.status(400).json({ error })

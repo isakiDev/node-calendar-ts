@@ -1,5 +1,5 @@
 import { type Request, type Response, type NextFunction } from 'express'
-import { CustomError, type RevalidateTokenDto } from '../../domain'
+import { CustomError } from '../../domain'
 import { JwtAdapter } from '../../config'
 import { validationResult } from 'express-validator'
 
@@ -10,17 +10,18 @@ interface Token {
   exp: number
 }
 
-type RequestWithIdAndName = Request & RevalidateTokenDto
 type TokenVerify = Token | null
 
 export class AuthMiddleware {
-  static async validateJWT (req: RequestWithIdAndName, res: Response, next: NextFunction) {
-    const tokenHeader = req.header('x-token')
+  static async validateJWT (req: Request, res: Response, next: NextFunction) {
+    const tokenHeader = req.header('Authorization')
 
     try {
       if (!tokenHeader) throw CustomError.unauthorized('Missing token')
+      if (!tokenHeader.startsWith('Bearer')) throw CustomError.unauthorized('Invalid bearer token')
 
-      const data: TokenVerify = await JwtAdapter.validateToken(tokenHeader)
+      const token = tokenHeader.split(' ').at(1) ?? ''
+      const data: TokenVerify = await JwtAdapter.validateToken(token)
 
       if (!data) {
         return res.status(401).json({
@@ -28,8 +29,10 @@ export class AuthMiddleware {
         })
       }
 
-      req.id = data.id
-      req.name = data.name
+      req.body.user = {
+        id: data.id,
+        name: data.name
+      }
 
       next()
     } catch (error) {

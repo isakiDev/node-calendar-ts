@@ -32,7 +32,7 @@ export class AuthRoutes {
       controller.login
     )
 
-    // router.post('/rev', AuthMiddleware.validateJWT, controller.revalidateToken)
+    router.post('/rev', AuthMiddleware.validateJWT, controller.revalidateToken)
 
     return router
   }
