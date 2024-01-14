@@ -17,3 +17,4 @@ export * from './use-cases/auth/register-user.use-case'
 export * from './use-cases/auth/revalidateToken-user.use-case'
 
 export * from './use-cases/calendar/createEvent-calendar.use-case'
+export * from './use-cases/calendar/updateEvent-calendar.use-case'

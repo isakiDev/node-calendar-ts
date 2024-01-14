@@ -2,7 +2,8 @@ import {
   type CalendarEntity,
   type CreateEventDto,
   type CalendarDatasourse,
-  type CalendarRepository
+  type CalendarRepository,
+  type UpdateEventDto
 } from '../../domain'
 
 export class CalendarRepositoryImpl implements CalendarRepository {
@@ -12,5 +13,9 @@ export class CalendarRepositoryImpl implements CalendarRepository {
 
   async createEvent (createEventDto: CreateEventDto): Promise<CalendarEntity> {
     return await this.calendarDatasource.createEvent(createEventDto)
+  }
+
+  async updateEvent (updateEventDto: UpdateEventDto): Promise<CalendarEntity> {
+    return await this.calendarDatasource.updateEvent(updateEventDto)
   }
 }

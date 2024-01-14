@@ -1,13 +1,26 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJkOWEwZjc3NmFmYjgyYzMwYzhjZCIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUxODg0NzksImV4cCI6MTcwNTE5NTY3OX0.6BF-v2u964M8QCSifdGqPCuTB5jp1nWjz8Nq6MdPuYg
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2NDUyYzQ4NTkzMzk0NTYyODIxZCIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MjA2ODc4LCJleHAiOjE3MDUyMTQwNzh9.znv244bTHoKDyCl5h0nTKgvVkFX4oQL_9j4lMENV-j8
 
+###
 POST http://localhost:4000/api/calendar
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "nose",
-  "notes": "Comprar curso de Fernando Herrera",
-  "start": "11/01/2024",
+  "title": "Mi first note",
+  "start": "12/01/2024",
+  "notes": "Hi, Im a note",
   "end": "12/01/2024"
+}
+###
+
+PUT  http://localhost:4000/api/calendar/65a36863ed6b91f724dcd36e
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Test updated note",
+  "notes": "Updated",
+  "start": "10/01/2024",
+  "end": "10/01/2024"
 }
 ###
