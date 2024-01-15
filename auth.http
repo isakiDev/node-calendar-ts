@@ -11,12 +11,12 @@ POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test2@gmail.com",
-  "password": "qqqqqq"
+  "email": "test1@gmail.com",
+  "password": "chuchuca28"
 }
 ###
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUyMDYyNTcsImV4cCI6MTcwNTIxMzQ1N30.FH2ohEhUHo8yE3KxZiDFFrowXF8W2BfhKzfAB0r8Pr8
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUzNjIzOTcsImV4cCI6MTcwNTM2OTU5N30.JbFzszmmm8giK8fYIBT1XJJr9Pe0wR7KLlPI8HmuSCs
 
 POST http://localhost:4000/api/auth/rev
 Content-Type: application/json

@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express'
-import { CreateEventDto, type CalendarRepository, CustomError, CreateEvent, UpdateEventDto, UpdateEvent } from '../../domain'
+import { CreateEventDto, type CalendarRepository, CustomError, CreateEvent, UpdateEventDto, UpdateEvent, DeleteEventDto, DeleteEvent } from '../../domain'
 
 interface RequestWithNameAndId extends Request {
   id?: string
@@ -50,6 +50,20 @@ export class CalendarController {
 
     new UpdateEvent(this.calendarRepository)
       .execute(updateEventDto!)
+      .then(data => res.json(data))
+      .catch(error => this.handleError(error, res))
+  }
+
+  deleteEvent = async (req: RequestWithNameAndId, res: Response) => {
+    const { id } = req.params
+    const { id: uid } = req.body.user
+
+    const [error, deleteEventDto] = DeleteEventDto.create({ id, uid })
+
+    if (error) return res.status(400).json({ error })
+
+    new DeleteEvent(this.calendarRepository)
+      .execute(deleteEventDto!)
       .then(data => res.json(data))
       .catch(error => this.handleError(error, res))
   }

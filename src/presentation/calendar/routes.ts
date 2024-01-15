@@ -12,19 +12,35 @@ export class CalendarRoutes {
     const repository = new CalendarRepositoryImpl(datasource)
     const controller = new CalendarController(repository)
 
-    router.use([
-      ValidatorAdapter.check('title', 'Title is required').notEmpty().isString(),
-      ValidatorAdapter.check('start', 'Start date is required').notEmpty().custom(isDate),
-      ValidatorAdapter.check('end', 'End date is required').notEmpty().custom(isDate),
-      AuthMiddleware.validateJWT
-    ])
+    router.use(AuthMiddleware.validateJWT)
 
-    router.post('/', AuthMiddleware.validateData, controller.createEvent)
+    router.post('/',
+      [
+        ValidatorAdapter.check('title', 'Title is required').notEmpty().isString(),
+        ValidatorAdapter.check('start', 'Start date is required').notEmpty().custom(isDate),
+        ValidatorAdapter.check('end', 'End date is required').notEmpty().custom(isDate),
+        AuthMiddleware.validateData
+      ],
+      controller.createEvent
+    )
 
     router.put('/:id',
-      ValidatorAdapter.check('id').isMongoId().withMessage('Invalid id'),
-      AuthMiddleware.validateData,
+      [
+        ValidatorAdapter.check('id').isMongoId().withMessage('Invalid id'),
+        ValidatorAdapter.check('title', 'Title is required').notEmpty().isString(),
+        ValidatorAdapter.check('start', 'Start date is required').notEmpty().custom(isDate),
+        ValidatorAdapter.check('end', 'End date is required').notEmpty().custom(isDate),
+        AuthMiddleware.validateData
+      ],
       controller.updateEvent
+    )
+
+    router.delete('/:id',
+      [
+        ValidatorAdapter.check('id').isMongoId().withMessage('Invalid id'),
+        AuthMiddleware.validateData
+      ],
+      controller.deleteEvent
     )
 
     return router

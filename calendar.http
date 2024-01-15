@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2NDUyYzQ4NTkzMzk0NTYyODIxZCIsIm5hbWUiOiJHYWJyaWVsIiwiaWF0IjoxNzA1MjA2ODc4LCJleHAiOjE3MDUyMTQwNzh9.znv244bTHoKDyCl5h0nTKgvVkFX4oQL_9j4lMENV-j8
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUzNjIzOTcsImV4cCI6MTcwNTM2OTU5N30.JbFzszmmm8giK8fYIBT1XJJr9Pe0wR7KLlPI8HmuSCs
 
 ###
 POST http://localhost:4000/api/calendar
@@ -6,14 +6,14 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "Mi first note",
+  "title": "Mi first note Isaac",
   "start": "12/01/2024",
   "notes": "Hi, Im a note",
   "end": "12/01/2024"
 }
 ###
 
-PUT  http://localhost:4000/api/calendar/65a36863ed6b91f724dcd36e
+PUT http://localhost:4000/api/calendar/65a5c207bb9775df8152899a
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -23,4 +23,9 @@ Authorization: Bearer {{token}}
   "start": "10/01/2024",
   "end": "10/01/2024"
 }
+###
+
+DELETE http://localhost:4000/api/calendar/65a5c3ee353b4c7b5dc4f74b
+Content-Type: application/json
+Authorization: Bearer {{token}}
 ###
