@@ -12,6 +12,10 @@ export class CalendarRepositoryImpl implements CalendarRepository {
     private readonly calendarDatasource: CalendarDatasourse
   ) {}
 
+  async getEvents (): Promise<CalendarEntity[]> {
+    return await this.calendarDatasource.getEvents()
+  }
+
   async createEvent (createEventDto: CreateEventDto): Promise<CalendarEntity> {
     return await this.calendarDatasource.createEvent(createEventDto)
   }

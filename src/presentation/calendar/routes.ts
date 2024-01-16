@@ -43,6 +43,8 @@ export class CalendarRoutes {
       controller.deleteEvent
     )
 
+    router.get('/', controller.getEvents)
+
     return router
   }
 }

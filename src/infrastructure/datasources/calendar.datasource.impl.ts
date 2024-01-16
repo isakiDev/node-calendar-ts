@@ -3,6 +3,24 @@ import { type CalendarEntity, type CreateEventDto, type CalendarDatasourse, Cust
 import { CalendarMapper } from '../mappers/calendar.mapper'
 
 export class CalendarDatasourceImpl implements CalendarDatasourse {
+  async getEvents (): Promise<CalendarEntity[]> {
+    try {
+      const events = await EventModel
+        .find()
+        .populate('user', 'name')
+
+      // if (events.length <= 0) throw CustomError.notFound('Events not found')
+
+      return events.map(event => CalendarMapper.calendarEntityFromObject(event))
+    } catch (error) {
+      if (error instanceof CustomError) {
+        throw error
+      }
+
+      throw CustomError.internalServer()
+    }
+  }
+
   async createEvent (createEventDto: CreateEventDto): Promise<CalendarEntity> {
     try {
       const event = await EventModel.create(createEventDto)

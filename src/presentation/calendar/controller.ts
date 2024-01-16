@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express'
-import { CreateEventDto, type CalendarRepository, CustomError, CreateEvent, UpdateEventDto, UpdateEvent, DeleteEventDto, DeleteEvent } from '../../domain'
+import { CreateEventDto, type CalendarRepository, CustomError, CreateEvent, UpdateEventDto, UpdateEvent, DeleteEventDto, DeleteEvent, GetEvents } from '../../domain'
 
 interface RequestWithNameAndId extends Request {
   id?: string
@@ -64,6 +64,13 @@ export class CalendarController {
 
     new DeleteEvent(this.calendarRepository)
       .execute(deleteEventDto!)
+      .then(data => res.json(data))
+      .catch(error => this.handleError(error, res))
+  }
+
+  getEvents = async (req: Request, res: Response) => {
+    new GetEvents(this.calendarRepository)
+      .execute()
       .then(data => res.json(data))
       .catch(error => this.handleError(error, res))
   }
