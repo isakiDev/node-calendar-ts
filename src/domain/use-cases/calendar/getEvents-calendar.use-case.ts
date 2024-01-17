@@ -1,8 +1,15 @@
-import { type CalendarEntity } from '../../entities/calendar.entity'
 import { type CalendarRepository } from '../../repositories/calendar.repository'
 
+interface Calendar {
+  title: string
+  notes: string
+  start: Date
+  end: Date
+  user: string
+}
+
 interface GetEventsUseCase {
-  execute: () => Promise<CalendarEntity[]>
+  execute: () => Promise<Calendar[]>
 }
 
 export class GetEvents implements GetEventsUseCase {
@@ -10,7 +17,7 @@ export class GetEvents implements GetEventsUseCase {
     private readonly calendarRepository: CalendarRepository
   ) {}
 
-  async execute (): Promise<CalendarEntity[]> {
+  async execute (): Promise<Calendar[]> {
     return await this.calendarRepository.getEvents()
   }
 }
