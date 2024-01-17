@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUzNjQ1NzYsImV4cCI6MTcwNTM3MTc3Nn0.XJdZ4Oul4LH4OwKj1sJ6LNZagCR_M5cnSJd3BiZotf4
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDU1MTU1NDcsImV4cCI6MTcwNTUyMjc0N30.N72hGcWWZMQkcEng4bdZUT9CGh-W0CoNNKlJJzXT2CI
 
 ###
 POST http://localhost:4000/api/calendar
@@ -13,7 +13,7 @@ Authorization: Bearer {{token}}
 }
 ###
 
-PUT http://localhost:4000/api/calendar/65a5cda4b82509b166abded4
+PUT http://localhost:4000/api/calendar/65a81ba88c6eab4a7b218ad6
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -25,7 +25,7 @@ Authorization: Bearer {{token}}
 }
 ###
 
-DELETE http://localhost:4000/api/calendar/65a5cd79b82509b166abdecc
+DELETE http://localhost:4000/api/calendar/65a81ba88c6eab4a7b218ad6
 Content-Type: application/json
 Authorization: Bearer {{token}}
 ###
