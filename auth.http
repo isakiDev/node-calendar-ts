@@ -11,15 +11,12 @@ POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test1@gmail.com",
-  "password": "chuchuca28"
+  "password": "chu8"
 }
 ###
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDUzNjIzOTcsImV4cCI6MTcwNTM2OTU5N30.JbFzszmmm8giK8fYIBT1XJJr9Pe0wR7KLlPI8HmuSCs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDU1NDExMjcsImV4cCI6MTcwNTU0ODMyN30.wfss1HUOkUq6jDUarQ8hMHfh1OGghHaS1wLti6qy4cY
 
-POST http://localhost:4000/api/auth/rev
+GET http://localhost:4000/api/auth/rev
 Content-Type: application/json
 Authorization: Bearer {{token}}
-
-
