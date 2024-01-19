@@ -27,7 +27,7 @@ export class RevalidateToken implements RevalidateTokenUserUseCase {
   async execute (revalidateTokenDto: RevalidateTokenDto): Promise<UserToken> {
     const { id, name } = await this.authRepository.revalidateToken(revalidateTokenDto)
 
-    const token = await this.signToken({ id, name })
+    const token = await this.signToken({ id, name }, '1h')
 
     if (!token) throw CustomError.badRequest('Token not generated')
 
