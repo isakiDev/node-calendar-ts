@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDU1MTU1NDcsImV4cCI6MTcwNTUyMjc0N30.N72hGcWWZMQkcEng4bdZUT9CGh-W0CoNNKlJJzXT2CI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDU3NzY4NTAsImV4cCI6MTcwNTc4NDA1MH0.X5UPyWLigHHzrnGbO3FWOtw-fd-uykhfCJyQQagBCCE
 
 ###
 POST http://localhost:4000/api/calendar
@@ -6,10 +6,10 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "Mi first note Isaac",
-  "start": "12/01/2024",
+  "title": "Mi first note",
+  "start": "2024-01-19",
   "notes": "Hi, Im a note",
-  "end": "12/01/2024"
+  "end": "2024-01-20"
 }
 ###
 
@@ -20,8 +20,8 @@ Authorization: Bearer {{token}}
 {
   "title": "Test updated note",
   "notes": "Updated",
-  "start": "10/01/2024",
-  "end": "10/01/2024"
+  "start": "2024-01-10",
+  "end": "2024-01-10"
 }
 ###
 
