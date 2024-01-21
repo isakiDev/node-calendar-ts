@@ -28,8 +28,8 @@ export class CreateEvent implements CreateEventUseCase {
 
     return {
       title: event.title,
-      notes: event.notes,
       start: event.start,
+      notes: event.notes,
       end: event.end,
       user: {
         id: event.user

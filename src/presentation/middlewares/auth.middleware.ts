@@ -1,14 +1,9 @@
 import { type Request, type Response, type NextFunction } from 'express'
-import { CustomError } from '../../domain'
-import { JwtAdapter } from '../../config'
 import { validationResult } from 'express-validator'
 
-interface Token {
-  id: string
-  name: string
-  iat: number
-  exp: number
-}
+import { CustomError } from '../../domain'
+import { JwtAdapter } from '../../config'
+import { type Token } from '../../types'
 
 type TokenVerify = Token | null
 
@@ -30,7 +25,7 @@ export class AuthMiddleware {
       }
 
       req.body.user = {
-        id: data.id,
+        uid: data.uid,
         name: data.name
       }
 

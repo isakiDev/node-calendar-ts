@@ -37,10 +37,8 @@ export class AuthController {
   }
 
   revalidateToken = async (req: Request, res: Response) => {
-    const [error, revalidateTokenDto] = RevalidateTokenDto.create({
-      id: req.body.user.id,
-      name: req.body.user.name
-    })
+    const { uid, name } = req.body.user
+    const [error, revalidateTokenDto] = RevalidateTokenDto.create({ uid, name })
 
     if (error) return res.status(400).json({ error })
 

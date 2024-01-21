@@ -65,10 +65,10 @@ export class AuthDatasourceImpl implements AuthDatasource {
   }
 
   async revalidateToken (revalidateTokenDto: RevalidateTokenDto): Promise<RevalidateTokenDto> {
-    const { id, name } = revalidateTokenDto
+    const { uid, name } = revalidateTokenDto
 
     try {
-      return new RevalidateTokenDto(id, name)
+      return new RevalidateTokenDto(uid, name)
     } catch (error) {
       if (error instanceof CustomError) {
         throw error

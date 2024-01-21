@@ -1,17 +1,13 @@
-interface Fields {
-  name: string
-  email: string
-  password: string
-}
+import { type User } from '../../../types'
 
-export class RegisterUserDto {
+export class RegisterUserDto implements User {
   constructor (
     public name: string,
     public email: string,
     public password: string
   ) {}
 
-  static create (object: Fields): [string?, RegisterUserDto?] {
+  static create (object: User): [string?, RegisterUserDto?] {
     const { name, email, password } = object
 
     if (!name) return ['Missing name']
