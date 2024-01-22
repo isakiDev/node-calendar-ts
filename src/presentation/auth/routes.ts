@@ -17,7 +17,9 @@ export class AuthRoutes {
       [
         ValidatorAdapter.check('name').notEmpty().withMessage('Name is required'),
         ValidatorAdapter.check('email').isEmail().withMessage('Email is required'),
-        ValidatorAdapter.check('password').isLength({ min: 6 }).withMessage('Password must be minimum 6 characters'),
+        ValidatorAdapter.check('password').notEmpty().isLength({ min: 6 })
+          .withMessage('Password must be minimum 6 characters')
+          .matches(/^[^\s]+$/).withMessage('Password cannot contain spaces'),
         AuthMiddleware.validateData
       ],
       controller.register
