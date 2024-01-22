@@ -13,6 +13,7 @@ export class CalendarDatasourceImpl implements CalendarDatasourse {
 
       return events.map(event => CalendarMapper.calendarEntityFromObject(event))
     } catch (error) {
+      console.log({ error })
       if (error instanceof CustomError) {
         throw error
       }

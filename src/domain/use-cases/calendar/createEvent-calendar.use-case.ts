@@ -3,6 +3,7 @@ import { CustomError } from '../../errors/custom.error'
 import { type CalendarRepository } from '../../repositories/calendar.repository'
 
 interface Calendar {
+  id: string
   title: string
   notes: string
   start: Date
@@ -27,6 +28,7 @@ export class CreateEvent implements CreateEventUseCase {
     if (!event) throw CustomError.badRequest('Event not created')
 
     return {
+      id: event.id,
       title: event.title,
       start: event.start,
       notes: event.notes,

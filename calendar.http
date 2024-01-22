@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTM2MWU4MjcxOTA4NmJmMjQyYjllZSIsIm5hbWUiOiJHYXNwYXIiLCJpYXQiOjE3MDU3ODQzMDYsImV4cCI6MTcwNTc5MTUwNn0.iqgAw8CvQZJ2NRS413YS1PqPfNZ3j9DFDgYgCOVfjHc
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWEzNjQ1MmM0ODU5MzM5NDU2MjgyMWQiLCJuYW1lIjoiR2FicmllbCIsImlhdCI6MTcwNTg5NDMxNiwiZXhwIjoxNzA1OTAxNTE2fQ.HZdIrQpiHPp5w5Vfh9tnV5X-_4KOo3cqvMJ7gnPPE9g
 
 ###
 POST http://localhost:4000/api/calendar
@@ -6,10 +6,10 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "title": "Mi first note",
+  "title": "qq",
   "start": "2024-01-19",
-  "notes": "Hi, Im a note",
-  "end": "2024-01-20"
+  "end": "2024-01-20",
+  "notes": "ww"
 }
 ###
 
