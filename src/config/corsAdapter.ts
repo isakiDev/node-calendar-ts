@@ -1,6 +1,6 @@
 import cors from 'cors'
 
-const ACCEPTED_ORIGINS = ['http://localhost:5173']
+const ACCEPTED_ORIGINS = ['https://react-calendar.isakidev.com']
 
 export const corsAdapter = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
   origin: (origin, callback) => {
