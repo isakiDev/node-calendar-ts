@@ -1,9 +1,9 @@
-# Steps to start project
+## Deployment
 
 - npm i | pnpm i
 - create .env file
 - docker compose up -d
 - pnpm run dev
 
-# Code FrontEnd
-https://github.com/isakiDev/react-portfolio-ts
+## 🔗 Links
+[FrontEnd](https://github.com/isakiDev/react-calendar-ts)
