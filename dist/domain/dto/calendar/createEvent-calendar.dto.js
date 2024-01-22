@@ -9,18 +9,18 @@ class CreateEventDto {
         this.title = title;
         this.user = user;
     }
-    static create({ title, end, notes = '', start, user }) {
+    static create({ title, end, notes = '', start, uid }) {
         if (!title)
             return ['Missing title'];
         if (!start)
             return ['Missing start date'];
         if (!end)
             return ['Missing end date'];
-        if (!user)
+        if (!uid)
             return ['Missing user'];
         return [
             undefined,
-            new CreateEventDto(end, notes, start, title, user)
+            new CreateEventDto(end, notes, start, title, uid)
         ];
     }
 }

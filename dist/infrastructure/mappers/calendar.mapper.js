@@ -16,7 +16,7 @@ class CalendarMapper {
             throw new Error('Missing end date');
         if (!user)
             throw new Error('Missing user');
-        return new domain_1.CalendarEntity(_id || id, title, notes, start, end, user);
+        return new domain_1.CalendarEntity(_id || id, title, notes, start, end, { id: user._id, name: user.name });
     }
 }
 exports.CalendarMapper = CalendarMapper;

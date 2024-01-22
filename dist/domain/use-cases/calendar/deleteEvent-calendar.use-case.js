@@ -27,8 +27,10 @@ class DeleteEvent {
     }
     execute(deleteEvent) {
         return __awaiter(this, void 0, void 0, function* () {
-            const _a = yield this.calendarRepository.deleteEvent(deleteEvent), { user: id } = _a, rest = __rest(_a, ["user"]);
-            return Object.assign(Object.assign({}, rest), { user: { id } });
+            const _a = yield this.calendarRepository.deleteEvent(deleteEvent), { user } = _a, rest = __rest(_a, ["user"]);
+            return Object.assign(Object.assign({}, rest), { user: {
+                    id: user.id
+                } });
         });
     }
 }

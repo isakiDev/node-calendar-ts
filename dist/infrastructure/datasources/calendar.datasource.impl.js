@@ -40,6 +40,7 @@ class CalendarDatasourceImpl {
                 return calendar_mapper_1.CalendarMapper.calendarEntityFromObject(event);
             }
             catch (error) {
+                console.log(error);
                 if (error instanceof domain_1.CustomError) {
                     throw error;
                 }
@@ -49,12 +50,12 @@ class CalendarDatasourceImpl {
     }
     updateEvent(updateEventDto) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id, user } = updateEventDto;
+            const { id, user: uid } = updateEventDto;
             try {
                 const event = yield mongo_1.EventModel.findById(id);
                 if (!event)
                     throw domain_1.CustomError.badRequest('Event not exists');
-                if (event.user.toString() !== user)
+                if (event.user.toString() !== uid)
                     throw domain_1.CustomError.unauthorized('You do not have privileges to update');
                 const newEvent = Object.assign({}, updateEventDto);
                 const eventUpdated = yield mongo_1.EventModel.findByIdAndUpdate(id, newEvent, { new: true });
@@ -72,7 +73,7 @@ class CalendarDatasourceImpl {
     }
     deleteEvent(deleteEventDto) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id, uid } = deleteEventDto;
+            const { id, user: uid } = deleteEventDto;
             try {
                 const event = yield mongo_1.EventModel.findById(id);
                 if (!event)

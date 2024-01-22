@@ -15,7 +15,7 @@ class CalendarController {
     constructor(calendarRepository) {
         this.calendarRepository = calendarRepository;
         this.createEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const data = Object.assign(Object.assign({}, req.body), { user: req.body.user.uid });
+            const data = Object.assign(Object.assign({}, req.body), { uid: req.body.user.uid });
             const [error, createEventDto] = domain_1.CreateEventDto.create(data);
             if (error)
                 return res.status(400).json({ error });
@@ -26,7 +26,7 @@ class CalendarController {
         });
         this.updateEvent = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const data = Object.assign(Object.assign({}, req.body), { id, user: req.body.user.uid });
+            const data = Object.assign(Object.assign({}, req.body), { id, uid: req.body.user.uid });
             const [error, updateEventDto] = domain_1.UpdateEventDto.create(data);
             if (error)
                 return res.status(400).json({ error });

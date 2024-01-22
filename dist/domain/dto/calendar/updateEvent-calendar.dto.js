@@ -10,20 +10,20 @@ class UpdateEventDto {
         this.end = end;
         this.user = user;
     }
-    static create({ id, end, notes, start, title, user }) {
+    static create({ id, end, notes, start, title, uid }) {
         if (!id)
             return ['Missing id'];
         if (!end)
             return ['Missing end date'];
-        if (!end)
+        if (!start)
             return ['Missing start date'];
-        if (!end)
+        if (!title)
             return ['Missing title'];
-        if (!end)
+        if (!uid)
             return ['Missing user'];
         return [
             undefined,
-            new UpdateEventDto(id, title, notes, start, end, user)
+            new UpdateEventDto(id, title, notes, start, end, uid)
         ];
     }
 }
