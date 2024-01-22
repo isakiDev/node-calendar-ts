@@ -5,7 +5,9 @@ interface Calendar {
   notes: string
   start: Date
   end: Date
-  user: string
+  user: {
+    id: string
+  }
 }
 
 interface GetEventsUseCase {

@@ -1,4 +1,4 @@
-interface FieldsDeleteEvent {
+interface InputDeleteEvent {
   id: string
   uid: string
 }
@@ -6,13 +6,13 @@ interface FieldsDeleteEvent {
 export class DeleteEventDto {
   constructor (
     public readonly id: string,
-    public readonly uid: string
+    public readonly user: string
 
   ) {}
 
-  static create ({ id, uid }: FieldsDeleteEvent): [string?, DeleteEventDto?] {
+  static create ({ id, uid }: InputDeleteEvent): [string?, DeleteEventDto?] {
     if (!id) return ['Missing id']
-    if (!uid) return ['Missing user id']
+    if (!uid) return ['Missing user']
 
     return [
       undefined,

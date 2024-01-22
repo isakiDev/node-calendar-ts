@@ -34,7 +34,7 @@ export class CreateEvent implements CreateEventUseCase {
       notes: event.notes,
       end: event.end,
       user: {
-        id: event.user
+        id: event.user.id
       }
     }
   }

@@ -1,6 +1,6 @@
 import cors from 'cors'
 
-const ACCEPTED_ORIGINS = ['']
+const ACCEPTED_ORIGINS = ['http://localhost:5173']
 
 export const corsAdapter = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
   origin: (origin, callback) => {

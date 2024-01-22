@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "name": "Test",
-  "email": "test4@gmail.com",
+  "email": "test2@gmail.com",
   "password": "qqqqqq"
 }
 ###
@@ -11,12 +11,12 @@ POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test1@gmail.com",
-  "password": "chuchuca28"
+  "email": "test2@gmail.com",
+  "password": "qqqqqq"
 }
 ###
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWFjMzc5YzIxNmVmNzk3NmI1ZGNkNTgiLCJuYW1lIjoiVGVzdCIsImlhdCI6MTcwNTc4NTU0OCwiZXhwIjoxNzA1NzkyNzQ4fQ.gF2VphcplJN2F0IZViwVG78RTAgfxAnpkJPFFxKpuSY
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWFlMzIyZmEyMWExYWRhNmFhNzAwOGMiLCJuYW1lIjoiVGVzdCIsImlhdCI6MTcwNTkxNDk2MywiZXhwIjoxNzA1OTIyMTYzfQ.lAZOiGJ4r04xxugmqckwQmiZn5wDu1IpOxa5CAXZSAw
 
 GET http://localhost:4000/api/auth/rev
 Content-Type: application/json

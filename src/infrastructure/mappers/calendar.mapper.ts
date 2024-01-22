@@ -19,7 +19,7 @@ export class CalendarMapper {
       notes,
       start,
       end,
-      user
+      { id: user._id, name: user.name }
     )
   }
 }

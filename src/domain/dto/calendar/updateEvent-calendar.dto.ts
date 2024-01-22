@@ -4,7 +4,7 @@ interface InputUpdateEvent {
   notes: string
   start: Date
   end: Date
-  user: string
+  uid: string
 }
 
 export class UpdateEventDto {
@@ -17,16 +17,16 @@ export class UpdateEventDto {
     public user: string
   ) {}
 
-  static create ({ id, end, notes, start, title, user }: InputUpdateEvent): [string?, UpdateEventDto?] {
+  static create ({ id, end, notes, start, title, uid }: InputUpdateEvent): [string?, UpdateEventDto?] {
     if (!id) return ['Missing id']
     if (!end) return ['Missing end date']
-    if (!end) return ['Missing start date']
-    if (!end) return ['Missing title']
-    if (!end) return ['Missing user']
+    if (!start) return ['Missing start date']
+    if (!title) return ['Missing title']
+    if (!uid) return ['Missing user']
 
     return [
       undefined,
-      new UpdateEventDto(id, title, notes, start, end, user)
+      new UpdateEventDto(id, title, notes, start, end, uid)
     ]
   }
 }

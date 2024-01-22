@@ -30,6 +30,7 @@ export class CalendarDatasourceImpl implements CalendarDatasourse {
 
       return CalendarMapper.calendarEntityFromObject(event)
     } catch (error) {
+      console.log(error)
       if (error instanceof CustomError) {
         throw error
       }
@@ -39,14 +40,14 @@ export class CalendarDatasourceImpl implements CalendarDatasourse {
   }
 
   async updateEvent (updateEventDto: UpdateEventDto): Promise<CalendarEntity> {
-    const { id, user } = updateEventDto
+    const { id, user: uid } = updateEventDto
 
     try {
       const event = await EventModel.findById(id)
 
       if (!event) throw CustomError.badRequest('Event not exists')
 
-      if (event.user.toString() !== user) throw CustomError.unauthorized('You do not have privileges to update')
+      if (event.user.toString() !== uid) throw CustomError.unauthorized('You do not have privileges to update')
 
       const newEvent = { ...updateEventDto }
 
@@ -65,7 +66,7 @@ export class CalendarDatasourceImpl implements CalendarDatasourse {
   }
 
   async deleteEvent (deleteEventDto: DeleteEventDto): Promise<CalendarEntity> {
-    const { id, uid } = deleteEventDto
+    const { id, user: uid } = deleteEventDto
 
     try {
       const event = await EventModel.findById(id)

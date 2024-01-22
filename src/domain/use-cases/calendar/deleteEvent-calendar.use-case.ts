@@ -21,11 +21,13 @@ export class DeleteEvent implements DeleteEventUseCase {
   ) {}
 
   async execute (deleteEvent: DeleteEventDto): Promise<Calendar> {
-    const { user: id, ...rest } = await this.calendarRepository.deleteEvent(deleteEvent)
+    const { user, ...rest } = await this.calendarRepository.deleteEvent(deleteEvent)
 
     return {
       ...rest,
-      user: { id }
+      user: {
+        id: user.id
+      }
     }
   }
 }

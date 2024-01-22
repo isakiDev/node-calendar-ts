@@ -3,7 +3,7 @@ interface InputCreateEvent {
   notes: string
   start: Date
   title: string
-  user: string
+  uid: string
 }
 
 export class CreateEventDto {
@@ -15,15 +15,15 @@ export class CreateEventDto {
     public user: string
   ) {}
 
-  static create ({ title, end, notes = '', start, user }: InputCreateEvent): [string?, CreateEventDto?] {
+  static create ({ title, end, notes = '', start, uid }: InputCreateEvent): [string?, CreateEventDto?] {
     if (!title) return ['Missing title']
     if (!start) return ['Missing start date']
     if (!end) return ['Missing end date']
-    if (!user) return ['Missing user']
+    if (!uid) return ['Missing user']
 
     return [
       undefined,
-      new CreateEventDto(end, notes, start, title, user)
+      new CreateEventDto(end, notes, start, title, uid)
     ]
   }
 }

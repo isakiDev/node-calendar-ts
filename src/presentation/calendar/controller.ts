@@ -22,7 +22,7 @@ export class CalendarController {
   createEvent = async (req: RequestWithNameAndId, res: Response) => {
     const data = {
       ...req.body,
-      user: req.body.user.uid
+      uid: req.body.user.uid
     }
 
     const [error, createEventDto] = CreateEventDto.create(data)
@@ -41,7 +41,7 @@ export class CalendarController {
     const data = {
       ...req.body,
       id,
-      user: req.body.user.uid
+      uid: req.body.user.uid
     }
 
     const [error, updateEventDto] = UpdateEventDto.create(data)

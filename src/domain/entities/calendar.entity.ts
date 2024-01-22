@@ -5,6 +5,9 @@ export class CalendarEntity {
     public notes: string,
     public start: Date,
     public end: Date,
-    public user: string
+    public user: {
+      id: string
+      name: string
+    }
   ) {}
 }

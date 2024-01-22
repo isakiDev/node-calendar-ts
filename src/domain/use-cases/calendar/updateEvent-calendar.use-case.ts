@@ -32,7 +32,7 @@ export class UpdateEvent implements UpdateEventUseCase {
       notes: event.notes,
       start: event.start,
       user: {
-        id: event.user
+        id: event.user.id
       }
     }
   }
