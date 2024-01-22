@@ -6,4 +6,4 @@
 - pnpm run dev
 
 # Code FrontEnd
-`https://github.com/isakiDev/react-portfolio-ts`
+https://github.com/isakiDev/react-portfolio-ts
