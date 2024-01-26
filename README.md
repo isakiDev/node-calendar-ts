@@ -1,4 +1,4 @@
-[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,tailwindmongodb,docker)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,tailwind,mongodb,docker)](https://skillicons.dev)
 
 ## Deployment
 
