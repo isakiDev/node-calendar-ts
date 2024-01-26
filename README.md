@@ -3,19 +3,21 @@
 [![My Skills](https://skillicons.dev/icons?i=nodejs,ts,tailwind,mongodb,docker)](https://skillicons.dev)
 
 # Run Project
-1. Install dependencies
+1. Clone the repository
+2. Install dependencies
 ```
 npm i
 ```
-3. Create .env file and fill in data
-4. Up database with docker
+3. Clone file **.env.template** and rename the copy to **.env**
+4. Fill data into .env
+5. Up database
 ```
 docker compose up -d
 ```
-6. Run
+6. Run application
 ```
 npm run dev
 ```
 
 # 🔗 Links
-- [FrontEnd](https://github.com/isakiDev/react-calendar-ts)
+- [Code FrontEnd](https://github.com/isakiDev/react-calendar-ts)
