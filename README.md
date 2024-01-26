@@ -1,6 +1,6 @@
 # Stack
 
-[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,tailwind,mongodb,docker)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nodejs,ts,mongodb,docker)](https://skillicons.dev)
 
 # Run Project
 1. Clone the repository
@@ -8,7 +8,7 @@
 ```
 npm i
 ```
-3. Clone file **.env.template** and rename the copy to **.env**
+3. Clone file ```.env.template``` and rename the copy to ```.env```
 4. Fill data into .env
 5. Up database
 ```
