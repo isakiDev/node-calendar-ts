@@ -1,4 +1,14 @@
 # Stack
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nodejs,ts,tailwind,mongodb,docker" />
+  </a>
+</p>
+
+
+
+
 [![My Skills](https://skillicons.dev/icons?i=nodejs,ts,tailwind,mongodb,docker)](https://skillicons.dev)
 
 # Run Project
