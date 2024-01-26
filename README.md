@@ -3,11 +3,15 @@
 
 # Run Project
 1. Install dependencies
-```npm i | pnpm i```
+```
+npm i | pnpm i
+```
 3. Create .env file and fill in data
 4. Up database with docker
-```docker compose up -d```
-5. Run
+```
+docker compose up -d
+```
+6. Run
 ```
 pnpm run dev
 ```
