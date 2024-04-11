@@ -6,7 +6,7 @@
 1. Clone the repository
 2. Install dependencies
 ```
-npm i
+pnpm i
 ```
 3. Clone file ```.env.template``` and rename the copy to ```.env```
 4. Fill data into .env
@@ -16,7 +16,7 @@ docker compose up -d
 ```
 6. Run application
 ```
-npm run dev
+pnpm run dev
 ```
 
 # 🔗 Links
