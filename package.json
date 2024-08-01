@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsnd --respawn --env-file=.env --clear src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "",
