@@ -17,7 +17,7 @@ class Server {
     start() {
         this.app.use(express_1.default.json());
         // this.app.use(corsAdapter())
-        this.app.use((0, cors_1.default)({ origin: '*' }));
+        this.app.use((0, cors_1.default)({ origin: '*', credentials: true }));
         this.app.use(this.routes);
         this.app.use(express_1.default.static(this.publicPath));
         this.app.listen(this.port, () => {
