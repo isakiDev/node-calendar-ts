@@ -14,7 +14,7 @@ pnpm i
 ```
 docker compose up -d
 ```
-6. Run application
+6. Run app
 ```
 pnpm run dev
 ```
