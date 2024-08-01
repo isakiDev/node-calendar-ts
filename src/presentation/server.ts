@@ -1,5 +1,6 @@
 import express, { type Router } from 'express'
-import { corsAdapter } from '../config'
+// import { corsAdapter } from '../config'
+import cors from 'cors'
 
 interface Options {
   port: number
@@ -22,7 +23,8 @@ export class Server implements Options {
 
   start () {
     this.app.use(express.json())
-    this.app.use(corsAdapter())
+    // this.app.use(corsAdapter())
+    this.app.use(cors({ origin: '*' }))
     this.app.use(this.routes)
     this.app.use(express.static(this.publicPath))
 
